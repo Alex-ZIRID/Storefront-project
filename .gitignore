@@ -22,10 +22,6 @@ tsconfig.tsbuildinfo
 .env.test
 .env.local
 
-# Database configuration and files
-database.json
-*.sqlite
-*.db
 
 # Logs
 logs/
@@ -44,11 +40,6 @@ Thumbs.db
 coverage/
 junit.xml
 
-# Database migrations
-.migrate
-migrations/*.sql
-migrations/sqls/*.sql
-db-migrations.log
 
 # Temporary or backup files
 *.tmp
