@@ -33,12 +33,17 @@ Features
 
 Setup Instructions
 
-A. Database Setup 1. Install PostgreSQL on your system if not already installed. 2. Create two databases:
-• Development Database: storefront_dev
-• Test Database: storefront_test 3. Create a PostgreSQL user:
-CREATE USER full_stack_user WITH PASSWORD 'new_abc123'; 4. Grant privileges:
-GRANT ALL PRIVILEGES ON DATABASE storefront_dev TO full_stack_user;
-GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
+A. Database Setup
+
+1. Install PostgreSQL on your system if not already installed.
+2. Create two databases:
+   • Development Database: storefront_dev
+   • Test Database: storefront_test
+3. Create a PostgreSQL user:
+   CREATE USER full_stack_user WITH PASSWORD 'new_abc123';
+4. Grant privileges:
+   GRANT ALL PRIVILEGES ON DATABASE storefront_dev TO full_stack_user;
+   GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
 
 B.Environment Variables
 Create a .env file in the project root and include the following variables:
@@ -53,9 +58,14 @@ BCRYPT_PEPPER=my_pepper
 BCRYPT_SALT_ROUNDS=10
 
 C. Installing Dependencies
-Install all project dependencies
+Install all project dependencies: 'npm install'
 
-D. Running the Project 1. Compile TypeScript files 2. Run database migrations 3. Start the development server 4. Access the API at http://localhost:3000
+D. Running the Project
+
+1. Compile TypeScript files: 'npm run build'
+2. Run database migrations: 'npm run migrate:reset && npm run migrate:up'
+3. Start the development server: 'npm run dev'
+4. Access the API at http://localhost:3000
 
 ---
 
@@ -79,8 +89,10 @@ Orders
 
 ---
 
-Testing 1. Run database migrations for the test environment  
- 2. Run the tests
+Testing
+
+1. Run database migrations for the test environment: 'npm run migrate:reset && npm run migration:up'
+2. Run the tests: 'npm run test'
 
 ---
 

@@ -1,0 +1,18 @@
+{
+  "dev": {
+    "driver": "pg",
+    "user": "full_stack_user",
+    "password": "your_password",
+    "host": "127.0.0.1",
+    "database": "storefront_dev"
+  },
+  "test": {
+    "driver": "pg",
+    "user": "full_stack_user",
+    "password": "your_password",
+    "host": "127.0.0.1",
+    "database": "storefront_test"
+  },
+  "defaultEnv": "dev",
+  "migration-dir": "migrations"
+}

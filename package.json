@@ -9,7 +9,10 @@
     "build": "tsc",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
     "test": "ENV=test && npx ts-node node_modules/jasmine/bin/jasmine.js",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "migrate:up": "db-migrate up",
+    "migrate:down": "db-migrate down",
+    "migrate:reset": "db-migrate reset && db-migrate up"
   },
   "author": "Udacity",
   "license": "ISC",
