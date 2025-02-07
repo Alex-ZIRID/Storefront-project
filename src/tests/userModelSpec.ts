@@ -15,7 +15,7 @@ describe("UserModel", () => {
                 password: "password123",
             });
         } catch (error) {
-            console.error("❌ Error in beforeAll setup:", error);
+            console.error("Error in beforeAll setup:", error);
         }
     });
 

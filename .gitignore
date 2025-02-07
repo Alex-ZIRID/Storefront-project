@@ -50,3 +50,6 @@ junit.xml
 src/**/*.js
 src/**/*.js.map
 src/**/*.d.ts
+
+# Allow JavaScript migration files
+!migrations/**/*.js
