@@ -91,8 +91,14 @@ Orders
 
 Testing
 
-1. Run database migrations for the test environment: 'npm run migrate:reset && npm run migration:up'
-2. Run the tests: 'npm run test'
+1. Run database migrations for the test environment:
+   'ENV=test npm run migrate:reset && ENV=test npm run migrate:up'
+
+2. Confirm that the migrations have been applied correctly by checking the database schema in PostgreSQL:
+   'psql -U full_stack_user -d storefront_test -c "\dt"'
+
+3. Run the tests:
+   'npm run test'
 
 ---
 
@@ -100,42 +106,42 @@ Database Schema
 
 Users Table
 +------------+-------------------+--------------------------+
-| Column     | Type              | Constraints              |
+| Column | Type | Constraints |
 +------------+-------------------+--------------------------+
-| id         | SERIAL PRIMARY KEY|                          |
-| firstname  | VARCHAR(255)      | NOT NULL                 |
-| lastname   | VARCHAR(255)      | NOT NULL                 |
-| email      | VARCHAR(255)      | UNIQUE, NOT NULL         |
-| password   | VARCHAR(255)      | NOT NULL                 |
+| id | SERIAL PRIMARY KEY| |
+| firstname | VARCHAR(255) | NOT NULL |
+| lastname | VARCHAR(255) | NOT NULL |
+| email | VARCHAR(255) | UNIQUE, NOT NULL |
+| password | VARCHAR(255) | NOT NULL |
 +------------+-------------------+--------------------------+
 
 Products Table
 +----------+-------------------+--------------------------+
-| Column   | Type              | Constraints              |
+| Column | Type | Constraints |
 +----------+-------------------+--------------------------+
-| id       | SERIAL PRIMARY KEY|                          |
-| name     | VARCHAR(255)      | NOT NULL                 |
-| price    | NUMERIC(10, 2)    | NOT NULL                 |
-| category | VARCHAR(255)      |                          |
+| id | SERIAL PRIMARY KEY| |
+| name | VARCHAR(255) | NOT NULL |
+| price | NUMERIC(10, 2) | NOT NULL |
+| category | VARCHAR(255) | |
 +----------+-------------------+--------------------------+
 
 Orders Table
 +----------+-------------------+-----------------------------------------------+
-| Column   | Type              | Constraints                                   |
+| Column | Type | Constraints |
 +----------+-------------------+-----------------------------------------------+
-| id       | SERIAL PRIMARY KEY|                                               |
-| user_id  | INTEGER           | REFERENCES users(id)                          |
-| status   | VARCHAR(50)       | CHECK (status IN ('active', 'completed')),    |
-|          |                   | NOT NULL                                      |
+| id | SERIAL PRIMARY KEY| |
+| user_id | INTEGER | REFERENCES users(id) |
+| status | VARCHAR(50) | CHECK (status IN ('active', 'completed')), |
+| | | NOT NULL |
 +----------+-------------------+-----------------------------------------------+
 
 Order Products Table
 +-------------+-------------------+--------------------------+
-| Column      | Type              | Constraints              |
+| Column | Type | Constraints |
 +-------------+-------------------+--------------------------+
-| id          | SERIAL PRIMARY KEY|                          |
-| order_id    | INTEGER           | REFERENCES orders(id)    |
-| product_id  | INTEGER           | REFERENCES products(id)  |
-| quantity    | INTEGER           | CHECK (quantity > 0),    |
-|             |                   | NOT NULL                 |
+| id | SERIAL PRIMARY KEY| |
+| order_id | INTEGER | REFERENCES orders(id) |
+| product_id | INTEGER | REFERENCES products(id) |
+| quantity | INTEGER | CHECK (quantity > 0), |
+| | | NOT NULL |
 +-------------+-------------------+--------------------------+
